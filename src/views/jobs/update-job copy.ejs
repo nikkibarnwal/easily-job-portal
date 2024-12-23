@@ -1,0 +1,142 @@
+<div class="container mt-5 justify-content-center align-items-center">
+  <div class="card w-50 mx-auto">
+    <div class="card-header text-center">
+      <h3>Update Job</h3>
+    </div>
+    <div class="card-body">
+      <form>
+        <!-- Job Category -->
+        <div class="mb-3">
+          <!-- <label for="jobCategory" class="form-label"
+            >Select New Job Category</label
+          > -->
+          <select id="jobCategory" class="form-select">
+            <option selected>Select new job category</option>
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+            <option value="3">Category 3</option>
+          </select>
+        </div>
+
+        <!-- Job Designation -->
+        <div class="mb-3">
+          <!-- <label for="jobDesignation" class="form-label"
+            >Select New Job Designation</label
+          > -->
+          <select id="jobDesignation" class="form-select">
+            <option selected>Select new job designation</option>
+            <option value="1">Designation 1</option>
+            <option value="2">Designation 2</option>
+            <option value="3">Designation 3</option>
+          </select>
+        </div>
+
+        <!-- Job Location -->
+        <div class="mb-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text w-100">Enter Job Location</div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              id="jobLocation"
+              name="jobLocation"
+              placeholder="e.g., Gurgaon HR IND Remote"
+            />
+          </div>
+        </div>
+
+        <!-- Company Name -->
+        <!-- <div class="mb-3">
+          <label for="companyName" class="form-label">Company Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="companyName"
+            value="Coding Ninjas"
+          />
+        </div> -->
+        <div class="form-group mb-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text w-100">Company Name</div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              id="companyName"
+              name="companyName"
+              placeholder="Enter your company"
+            />
+          </div>
+        </div>
+
+        <!-- Salary Range -->
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text w-100">Salary Range</div>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="salaryRange"
+                name="salaryRange"
+                value="14-20 LPA"
+                placeholder="Position Available"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text w-100">Total Positions</div>
+              </div>
+              <input
+                type="number"
+                class="form-control"
+                id="totalPosition"
+                name="totalPosition"
+                placeholder="Position Available"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <!-- Skills Required -->
+          <div class="col-md-6">
+            <select id="skillsRequired" class="form-select" multiple>
+              <option value="">Select Skills Required for This Job</option>
+              <option>React</option>
+              <option>Node.js</option>
+              <option>Angular</option>
+              <option>Vue.js</option>
+            </select>
+          </div>
+
+          <!-- Apply By -->
+          <div class="col-md-6">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text w-100">Apply By</div>
+              </div>
+              <input
+                type="date"
+                class="form-control"
+                id="applyBy"
+                name="applyBy"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Update Button -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success w-100">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

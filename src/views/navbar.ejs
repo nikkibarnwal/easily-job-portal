@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg bg-info">
+  <!-- <nav class="navbar navbar-expand-lg bg-info fixed-top"> -->
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Easily</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/jobs">Jobs</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <%= session?.user?.name ? session?.user?.name : 'Recruiter' %>
+          </a>
+          <ul class="dropdown-menu">
+            <% if(session?.user?.email){ %>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="/jobs/post">Post New Job</a></li>
+            <% } else{ %>
+            <li><a class="dropdown-item" href="/login">Login</a></li>
+            <% } %>
+            <!-- <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li> -->
+          </ul>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li> -->
+      </ul>
+      <form class="d-flex" role="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          id="searchText"
+          name="searchText"
+          aria-label="Search"
+        />
+        <button
+          class="btn btn-outline-success"
+          onclick="handleSearch()"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>

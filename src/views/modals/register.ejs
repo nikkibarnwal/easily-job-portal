@@ -1,0 +1,109 @@
+<div
+  class="modal fade"
+  id="registerModal"
+  tabindex="-1"
+  aria-labelledby="registerModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title modal-title-text" id="registerModalLabel">
+          Experience <%= APP_NAME %>!
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <div class="container shadow p-3 mb-1 rounded">
+          <%- include('../elements/alert.ejs') %>
+          <h5 class="modal-title modal-title-text">Register</h5>
+
+          <form class="my-3" method="post" id="registerform">
+            <div class="form-group mb-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Name</div>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                />
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Email</div>
+                </div>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                />
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Password</div>
+                </div>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+            </div>
+            <button
+              type="button"
+              onclick="handlePostRegister()"
+              class="btn btn-primary pink-bg"
+            >
+              Register
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <p class="text-success">Already Registered?</p>
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          data-bs-toggle="modal"
+          data-bs-target="#loginModal"
+        >
+          Login
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <!-- <div class="d-flex justify-content-end align-items-end">
+            <div class="d-flex flex-wrap justify-content-end">
+              <i class="fa-brands fa-x-twitter"></i>
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa fa-whatsapp" aria-hidden="true"></i>
+              <i class="fa-brands fa-linkedin"></i>
+            </div>
+          </div> -->
+      </div>
+    </div>
+  </div>
+</div>

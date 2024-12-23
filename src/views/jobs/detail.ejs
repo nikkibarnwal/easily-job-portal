@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="card mb-3">
+    <img
+      src="/images/jobs-detail.jpeg"
+      class="card-img-top job-details-img"
+      alt="..."
+    />
+    <div class="container card-body">
+      <h2 class="card-title text-center">
+        <%= `${job?.jobdesignation} in ${job?.joblocation} at` %>
+        <!-- SDE Opportunity In Gurgaon HR IND Remote at -->
+        <span class="text-info"><%= job?.companyname %></span>
+      </h2>
+      <button class="btn btn-warning">
+        Actively hiring <i class="fa-solid fa-chart-line"></i>
+      </button>
+      <div
+        class="alert alert-danger d-none"
+        role="alert"
+        id="deleteErrorMessage"
+      >
+        A simple danger alert—check it out!
+      </div>
+      <!-- check user is recruiter -->
+      <% if(session.user?.isrecruiter){ %>
+      <a
+        class="btn btn-outlined-success"
+        href="<%= `/jobs/${job?.id}/update` %>"
+      >
+        <i class="fas fa-edit"></i>
+      </a>
+      <buttton
+        class="btn btn-outlined-success"
+        onclick="showDeleteModal(`<%=job?.id%>`)"
+      >
+        <i class="fa-solid fa-trash"></i>
+      </buttton>
+      <% } %>
+      <!-- <p class="card-text">
+        This is a wider card with supporting text below as a natural lead-in to
+        additional content. This content is a little bit longer.
+      </p> -->
+      <h4 class="card-title"><%= job?.companyname %></h4>
+      <p class="card-text">
+        <b><%= job?.jobcategory %></b> <%= job?.jobdesignation %>
+      </p>
+      <ul class="ms-2 list-unstyled">
+        <li lass="card-text">
+          <i class="fa-solid fa-location-pin"></i> <%= job?.joblocation %>
+        </li>
+        <li lass="card-text">
+          <i class="fa-solid fa-indian-rupee-sign"></i> <%= job?.salary %>
+        </li>
+        <li lass="card-text">
+          <i class="fa-solid fa-hourglass-start"></i>
+          Apply By <%= job?.applyBy %>
+          <!-- Apply By 30 Aug 2023 <%= job?.applyBy %> -->
+        </li>
+        <li lass="card-text">
+          <i class="fas fa-signal"></i>
+          Number of openings <%= job?.numberofopenings %>
+        </li>
+        <li lass="card-text">
+          <% if(session.user?.isrecruiter){ %>
+          <a
+            href="<%= `/jobs/${job?.id}/applicants` %>"
+            class="text-decoration-none"
+            style="color: red"
+          >
+            <i class="fa-solid fa-user-group pr-2"></i>
+            Applicants <%= applicantCount %>
+          </a>
+          <% } else {%>
+          <span class="text-decoration-none" style="color: red">
+            <i class="fa-solid fa-user-group pr-2"></i>
+            Applicants <%= applicantCount %>
+          </span>
+          <% } %>
+        </li>
+      </ul>
+
+      <!-- <p class="card-text">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </p> -->
+      <div class="d-flex justify-content-start align-items-start mb-2">
+        <div class="d-flex flex-wrap justify-content-start">
+          <% job?.skillsrequired?.forEach((skill)=>{ %>
+          <button class="custom-btn"><%= skill%></button>
+          <% }) %>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-info me-1"
+        data-bs-toggle="modal"
+        data-bs-target="#applyJobModal"
+        onclick="appendJobId(`<%=job.id%>`)"
+      >
+        Apply Now
+      </button>
+      <button class="btn btn-outline-success">
+        Posted <%= job?.jobposted %>
+      </button>
+
+      <a href="/jobs" class="btn btn-danger"> Back </a>
+    </div>
+  </div>
+</div>
+<!-- Modal start -->
+<%- include('../modals/apply-job.ejs')%> <%-
+include('../modals/delete-job.ejs')%>
+<!-- Modal end -->

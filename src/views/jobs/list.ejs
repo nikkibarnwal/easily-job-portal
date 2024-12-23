@@ -1,0 +1,42 @@
+<div class="container vh-100 my-5">
+  <div class="col-md-12">
+    <% jobs.forEach((job,index)=>{ %> <% if(index % 3 === 0){ %>
+    <div class="row mb-5">
+      <% } %>
+      <div class="col-md-4">
+        <div class="card text-left">
+          <div class="card-header">
+            Actively Hiring <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title"><%= job.companyname %></h4>
+            <p class="card-text">
+              <b><%= job.jobcategory %></b> <%= job.jobdesignation %>
+            </p>
+            <h6 class="card-title">
+              <i class="fa-solid fa-location-pin"></i> <%= job.joblocation%>
+            </h6>
+            <h6 class="card-title">
+              <i class="fa-solid fa-indian-rupee-sign"></i> <%= job.salary%>
+            </h6>
+            <div class="d-flex justify-content-center align-items-center">
+              <div class="d-flex flex-wrap justify-content-start">
+                <% job?.skillsrequired?.forEach((skill)=>{ %>
+                <button class="custom-btn"><%= skill%></button>
+                <% }) %>
+              </div>
+            </div>
+            <div class="d-grid gap-2 mt-3">
+              <a href="<%= `/jobs/${job.id}` %>" class="btn btn-info"
+                >View Details</a
+              >
+            </div>
+          </div>
+          <!-- <div class="card-footer text-body-secondary">2 days ago</div> -->
+        </div>
+      </div>
+      <% if(index % 3 === 2){ %>
+    </div>
+    <% } }) %>
+  </div>
+</div>

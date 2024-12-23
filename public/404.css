@@ -1,0 +1,26 @@
+.oops-body {
+  background-color: #1a1a2e; /* Dark background */
+  color: #ffffff; /* White text */
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .oops-container {
+  text-align: center;
+} */
+.oops-title {
+  font-size: 4rem;
+  font-weight: bold;
+}
+.oops-icon img {
+  width: 150px;
+  height: auto;
+}
+.oops-message {
+  color: #ff4d4d; /* Red text */
+  margin-top: 20px;
+  font-size: 2rem;
+}

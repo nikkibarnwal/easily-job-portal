@@ -1,0 +1,147 @@
+<!-- Job Category -->
+<div class="mb-3">
+  <select id="jobcategory" name="jobcategory" class="form-select">
+    <option value="">Select new job category</option>
+    <% jobCategory?.forEach((jCat)=>{ %>
+    <option
+      value="<%= jCat.id  %>"
+      <%= jCat.id === job?.jobcategory && "selected"  %>
+    >
+      <%= jCat.name %>
+    </option>
+    <% }) %>
+  </select>
+</div>
+
+<!-- Job Designation -->
+<div class="mb-3">
+  <select id="jobdesignation" name="jobdesignation" class="form-select">
+    <option value="">Select new job designation</option>
+    <% jobDesignation?.forEach((jDesig)=>{ %>
+    <option 
+      value="<%= jDesig.id  %>"   
+      <%= jDesig.id === job?.jobdesignation && "selected"  %> >
+      <%= jDesig.name %>
+   </option>
+    <% }) %>
+    <!-- <option value="1">Designation 1</option>
+    <option value="2">Designation 2</option>
+    <option value="3">Designation 3</option> -->
+  </select>
+</div>
+
+<!-- Job Location -->
+<div class="mb-3">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <div class="input-group-text w-100">Enter Job Location</div>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      id="joblocation"
+      name="joblocation"
+      value="<%= job?.joblocation %>"
+      placeholder="e.g., Gurgaon HR IND Remote"
+    />
+  </div>
+</div>
+
+<!-- Company Name -->
+<div class="form-group mb-3">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <div class="input-group-text w-100">Company Name</div>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      id="companyname"
+      name="companyname"
+      value="<%= job?.companyname %>"
+      placeholder="Enter your company"
+    />
+  </div>
+</div>
+
+<!-- Salary Range -->
+<div class="row mb-3">
+  <div class="col-md-6">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text w-100">Salary Range</div>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        id="salary"
+        name="salary"
+        value="<%= job?.salary %>"
+        placeholder="14-20 LPA"
+      />
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text w-100">Total Positions</div>
+      </div>
+      <input
+        type="number"
+        class="form-control"
+        id="numberofopenings"
+        name="numberofopenings"
+        value="<%= job?.numberofopenings %>"
+        placeholder="Position Available"
+      />
+    </div>
+  </div>
+</div>
+<div class="row mb-3">
+  <!-- Skills Required -->
+  <div class="col-md-6">
+    <select
+      id="skillsrequired"
+      name="skillsrequired"
+      class="form-select"
+      multiple
+    >
+      <option value="">Select Skills Required for This Job</option>
+      <% skills?.forEach((skill)=>{ %>
+      <option 
+        value="<%= skill.id  %>"   
+        <%= job?.skillsrequired && job?.skillsrequired.includes(skill.id) ? 'selected' : '' %>>
+        <%= skill.name %>
+      </option>
+      <% }) %>
+      <!-- <option value="React">React</option>
+      <option value="Node.js">Node.js</option>
+      <option value="Angular">Angular</option>
+      <option value="Vue.js">Vue.js</option> -->
+    </select>
+  </div>
+
+  <!-- Apply By -->
+  <div class="col-md-6">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text w-100">Apply By</div>
+      </div>
+      <input type="date" class="form-control" id="applyBy" name="applyBy"  value="<%= job?.applyBy %>" />
+    </div>
+  </div>
+</div>
+
+<!-- Action Button -->
+
+<div class="d-flex gap-2">
+  <button
+    type="button"
+    class="btn btn-danger w-50"
+    onclick="window.history.back()"
+  >
+    Back
+  </button>
+
+  <button type="submit" class="btn btn-success w-50"><%= buttonName %></button>
+</div>

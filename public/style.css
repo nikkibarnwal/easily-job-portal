@@ -1,0 +1,39 @@
+.website-color {
+  background-color: blueviolet;
+}
+.pink-bg {
+  background-color: rgb(232 38 133);
+}
+.title-pink {
+  color: rgb(232 54 140);
+}
+.custom-btn {
+  border: 2px solid #00bcd4;
+  color: #00bcd4;
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+.custom-btn:hover {
+  background-color: #00bcd4;
+  color: #ffffff;
+}
+
+.job-details-img {
+  width: full;
+  height: 200px;
+}
+
+.input-group-text {
+  width: 100px; /* Adjust width as needed */
+  text-align: center;
+}
+
+.modal-title-text {
+  color: #b9b8bf;
+}
