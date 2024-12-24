@@ -6,11 +6,22 @@ Built with Express.js and EJS templates for dynamic server-side rendering.
 ---
 
 ## Features
-- Recruiters can post jobs with detailed descriptions.
-- job seeker to check and apply available jobs
-- Manage job postings with a user-friendly interface.
-- Middleware support for file uploads, session management, and validations.
-- Easy-to-use templating with EJS.
+
+- **Job Management**:  
+  Recruiters can post and update job listings with detailed descriptions.  
+  Authentication is required to add or update a job.  
+
+- **Search Functionality**:  
+  Users can search jobs by **location** and **designation**.  
+
+- **Applicant Management**:  
+  View the list of applicants for a particular job, including details like name, contact, and resume.
+
+- **Dynamic Templating**:  
+  User-friendly UI built with EJS for dynamic server-side rendering.
+
+- **Middleware Support**:  
+  File uploads (resumes), session management, and validation implemented using middleware.
 
 ---
 
@@ -50,6 +61,22 @@ Access the server at `http://localhost:3000`.
 
 - **`start`**: Start the server using `nodemon`.
 - **`test`**: Run the default test script (currently not defined).
+
+---
+
+## Features in Detail
+
+1. **Search Jobs**:  
+   - Users can filter jobs based on **location** and **designation** using the search bar.  
+
+2. **Post/Update Job Listings**:  
+   - Authenticated recruiters can create new job postings or update existing ones.  
+
+3. **Applicant List**:  
+   - Recruiters can view the list of applicants for a specific job, including contact details and resume downloads.  
+
+4. **Authentication**:  
+   - Secure authentication to ensure only authorized users can add or update job postings.
 
 ---
 
