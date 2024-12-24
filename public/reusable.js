@@ -1,6 +1,7 @@
 const MSG_ElementID = "errorMessage";
 const Login_MSG_ElementID = "loginErrorMessage";
 const Delete_MSG_ElementID = "deleteErrorMessage";
+const Job_Seeker_MSG_ElementID = "jobSeekerMessage";
 
 async function apiRequest(url, method = "GET", data = null) {
   try {
@@ -14,6 +15,7 @@ async function apiRequest(url, method = "GET", data = null) {
     };
 
     if (data) {
+      // options.body = data;
       options.body = JSON.stringify(data);
     }
 

@@ -3,6 +3,7 @@ import {
   JOB_DESIGNATION,
   SKILLS,
 } from "../../common/constant.js";
+import { mailNow } from "../../common/utility.js";
 import {
   getAllJobsModel,
   newApplicantToAJob,
@@ -10,6 +11,7 @@ import {
   postNewJobModel,
   updateJobModel,
   deleteJobModel,
+  searchByLocationDesig,
 } from "../models/job.model.js";
 
 export const getAllJobs = (req, res) => {
@@ -26,12 +28,12 @@ export const getUpdateJob = (req, res) => {
     jobDesignation: JOB_DESIGNATION,
     jobCategory: JOB_CATEGORY,
     buttonName: "Update",
+    errorMessage: "",
   });
 };
 
 export const postUpdateJob = (req, res) => {
   try {
-    console.log(req.body);
     updateJobModel(req.body, req.params.id);
     return res.redirect("/jobs");
   } catch (error) {
@@ -47,12 +49,12 @@ export const getAddJob = (req, res) => {
     jobDesignation: JOB_DESIGNATION,
     jobCategory: JOB_CATEGORY,
     buttonName: "Submit",
+    errorMessage: "",
   });
 };
 
 export const postNewJob = (req, res) => {
   try {
-    console.log(req.body);
     postNewJobModel(req.body);
     return res.redirect("/jobs");
   } catch (error) {
@@ -66,12 +68,12 @@ export const getJobDetailById = (req, res) => {
   res.render("jobs/detail", {
     job: jobs.length == 1 ? jobs[0] : [],
     applicantCount: jobs.length == 1 ? jobs[0]?.applicants.length : 0,
+    errorMessage: "",
   });
 };
 
 export const deleteAJobById = (req, res) => {
   const jobId = req.params.id;
-  console.log(jobId);
   try {
     deleteJobModel(jobId);
     return res
@@ -89,6 +91,12 @@ export const postApplyAJob = (req, res) => {
     const jobId = req.params.id;
     const resumePath = "resume/" + req.file.filename;
     newApplicantToAJob(req.body, jobId, resumePath);
+    mailNow(
+      req.body.email,
+      "Easily | Job Applied",
+      "Successfully Applied to a job"
+    );
+
     return res.redirect("/jobs/" + jobId);
   } catch (error) {
     console.log("Have error while applying a job", error);
@@ -101,4 +109,10 @@ export const getApplicantsByJobId = (req, res) => {
   res.render("jobs/applicant-list", {
     jobs: jobs.length == 1 ? jobs[0] : [],
   });
+};
+
+export const getJobBySearchText = (req, res) => {
+  console.log("raj works");
+  const jobs = searchByLocationDesig(req.query.searchText);
+  res.render("jobs/list", { jobs });
 };

@@ -29,16 +29,23 @@
 
           <form
             class="my-3"
-            id="jobApplyForm"
+            id="jobSeekerForm"
             enctype="multipart/form-data"
             method="post"
-            action="/job"
           >
+            <div
+              class="alert alert-danger d-none"
+              role="alert"
+              id="jobSeekerMessage"
+            >
+              A simple danger alert—check it out!
+            </div>
             <div class="form-group mb-3">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <div class="input-group-text">Name</div>
                 </div>
+                <input type="hidden" id="jobid" name="jobid" />
                 <input
                   type="text"
                   class="form-control"

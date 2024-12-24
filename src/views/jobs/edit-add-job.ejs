@@ -1,4 +1,7 @@
 <!-- Job Category -->
+<% if(errorMessage){ %>
+  <div class="alert alert-danger" role="alert"><%= errorMessage %></div>
+  <% } %>
 <div class="mb-3">
   <select id="jobcategory" name="jobcategory" class="form-select">
     <option value="">Select new job category</option>

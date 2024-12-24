@@ -14,6 +14,9 @@
       <button class="btn btn-warning">
         Actively hiring <i class="fa-solid fa-chart-line"></i>
       </button>
+      <% if(errorMessage){ %>
+      <div class="alert alert-danger" role="alert"><%= errorMessage %></div>
+      <% } %>
       <div
         class="alert alert-danger d-none"
         role="alert"

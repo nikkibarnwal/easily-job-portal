@@ -93,7 +93,7 @@ const handlePostLogin = () => {
     });
 };
 const appendJobId = (jobId) => {
-  let link = document.getElementById("jobApplyForm");
+  let link = document.getElementById("jobSeekerForm");
   link.setAttribute("action", `/jobs/${jobId}/applicants`);
 };
 

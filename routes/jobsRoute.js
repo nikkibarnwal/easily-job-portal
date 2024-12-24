@@ -9,20 +9,26 @@ import {
   getUpdateJob,
   postApplyAJob,
   postNewJob,
+  getJobBySearchText,
   postUpdateJob,
 } from "../src/controllers/job.controller.js";
 import uploadFile from "../src/middlewares/fileUpload.middleware.js";
+import setLastVisit from "../src/middlewares/lastVisit.middleware.js";
+import validateJobSeekerRequest from "../src/middlewares/validateJobSeeker.middleware.js";
+import validateJobPost from "../src/middlewares/validateJobPost.middleware.js";
 
 const router = express.Router();
 
 /**Retrieve all jobs */
-router.get("/", getAllJobs);
+router.get("/", setLastVisit, getAllJobs);
 
 /**Create new job listing */
-router.post("/", authRecruiter, postNewJob);
+router.post("/", authRecruiter, validateJobPost, postNewJob);
 
 /**get new job create page */
 router.get("/post", authRecruiter, getAddJob);
+
+router.get("/search", getJobBySearchText);
 
 /**Retrieve a specific job listing by ID */
 router.get("/:id", getJobDetailById);
@@ -41,7 +47,12 @@ router.delete("/:id", authRecruiter, (req, res) => {
 router.get("/:id/applicants", authRecruiter, getApplicantsByJobId);
 
 /**Add a new applicant to a specific job listing */
-router.post("/:id/applicants", uploadFile.single("resume"), postApplyAJob);
+router.post(
+  "/:id/applicants",
+  uploadFile.single("resume"),
+  validateJobSeekerRequest,
+  postApplyAJob
+);
 
 /**Retrieve a specific applicant by ID for a job listing */
 router.get("/:id/applicants/:applicantId", (req, res) => {
@@ -62,7 +73,7 @@ router.delete("/:id/applicants/:applicantId", (req, res) => {
 router.get("/:id/update", authRecruiter, getUpdateJob);
 
 /**Update a specific job listing by ID */
-router.post("/:id/update", authRecruiter, postUpdateJob);
+router.post("/:id/update", authRecruiter, validateJobPost, postUpdateJob);
 /**Delete a specific job listing by ID */
 router.post("/:id/delete", authRecruiter, deleteAJobById);
 

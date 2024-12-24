@@ -58,6 +58,16 @@ export const deleteJobModel = (id) => {
   }
 };
 
+/**Search by Job location and designation */
+export const searchByLocationDesig = (searchText) => {
+  const searchLength = searchText.length;
+  return jobs.filter(
+    (job) =>
+      job.jobdesignation.toLowerCase().slice(0, searchLength) === searchText ||
+      job.joblocation.toLowerCase().slice(0, searchLength) === searchText
+  );
+};
+
 export const jobs = [
   {
     id: 1,
